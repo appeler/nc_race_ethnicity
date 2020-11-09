@@ -39,7 +39,7 @@ FL codebook is as follows:
 
 We start by presenting a full cross-tabulation of prediction from the FL full name model and NC concatenation of race and ethnicity, e.g., Asian--HL, Asian--NL, etc.
 
-Next we present a crosstab that merges some categories.
+Next we present crosstabs that merge some categories. We propose two coding schemes --- Low FP and High FP. Both schemes code the first list item the same way. For the
 
 1. Between FL and NC, the clearest 1 to 1 mapping is for the following:
   * (FL) White, Not Hispanic --> (NC) W--NL
@@ -52,5 +52,5 @@ Next we present a crosstab that merges some categories.
   * High FP/Low FN: (NC) HL (all categories)
 
 3. For (FL) Asian or Pacific Islander, American Indian or Alaskan Native, Other, Multi-racial, and Unknown, we try the same two codings:
-  * Low FP/High FN: (NC) A-NL, I-NL, etc.
-  * High FP/Low FN: (NC) A (all ethnic codes), (NC) I (all ethnic codes), etc.
+  * Low FP/High FN: (NC) A-NL, I-NL, etc. For Unknown, we use U-UN as the lowest FP coding scheme.
+  * High FP/Low FN: (NC) A (all ethnic codes), (NC) I (all ethnic codes), etc
