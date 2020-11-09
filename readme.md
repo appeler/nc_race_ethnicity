@@ -41,16 +41,16 @@ We start by presenting a full cross-tabulation of prediction from the FL full na
 
 Next we present a crosstab that merges some categories.
 
-Between FL and NC, the clearest 1 to 1 mapping is for the following:
-1. (FL) White, Not Hispanic --> (NC) W--NL
-2. (FL) Black, Not Hispanic --> (NC) B--NL
+1. Between FL and NC, the clearest 1 to 1 mapping is for the following:
+  * (FL) White, Not Hispanic --> (NC) W--NL
+  * (FL) Black, Not Hispanic --> (NC) B--NL
 
-We leave those categories as is.
+  We leave those categories as is. For other categories, we need to make assumptions.
 
-For other categories, we need to make assumptions:
-
-3. We try two mappings for (FL) Hispanic:
+2. We try two mappings for (FL) Hispanic:
   * Low FP/High FN: (NC) HL (W--HL, B--HL) (as W--NL and B--NL are defined in FL)
   * High FP/Low FN: (NC) HL (all categories)
 
-  
+3. For (FL) Asian or Pacific Islander, American Indian or Alaskan Native, Other, Multi-racial, and Unknown, we try the same two codings:
+  * Low FP/High FN: (NC) A-NL, I-NL, etc.
+  * High FP/Low FN: (NC) A (all ethnic codes), (NC) I (all ethnic codes), etc.
