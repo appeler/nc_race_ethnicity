@@ -54,3 +54,7 @@ Next we present crosstabs that merge some categories. We propose two coding sche
 3. For (FL) Asian or Pacific Islander, American Indian or Alaskan Native, Other, Multi-racial, and Unknown, we try the same two codings:
   * Low FP/High FN: (NC) A-NL, I-NL, etc. For Unknown, we use U-UN as the lowest FP coding scheme.
   * High FP/Low FN: (NC) A (all ethnic codes), (NC) I (all ethnic codes), etc
+
+### NC Ethnicolr Model(s)
+
+We build new LSTM models based on NC data. We start by assuming y = concatenation of ethnic code and race code. We remove U and also UN --- assuming they are 'missing at random.' This gives us 12 categories.
