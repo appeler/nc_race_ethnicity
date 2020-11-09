@@ -58,3 +58,5 @@ Next we present crosstabs that merge some categories. We propose two coding sche
 ### NC Ethnicolr Model(s)
 
 We build new LSTM models based on NC data. We start by assuming y = concatenation of ethnic code and race code. We remove U and also UN --- assuming they are 'missing at random.' This gives us 12 categories.
+
+We build a separate model that only predicts the race_code and takes out 'U', again assuming it to be 'missing at random.'
