@@ -55,6 +55,29 @@ Next we present crosstabs that merge some categories. We propose two coding sche
   * Low FP/High FN: (NC) A-NL, I-NL, etc. For Unknown, we use U-UN as the lowest FP coding scheme.
   * High FP/Low FN: (NC) A (all ethnic codes), (NC) I (all ethnic codes), etc
 
+In all, we propose 3 comparisons
+
+Comparison # 1: Commensurate Group
+--------------------------
+
+(race_code == 'B') & (ethnic_code == 'NL') ==> nh_black
+(race_code == 'W') & (ethnic_code == 'NL') ==> nh_white
+
+Comparison #2: Low FP
+------------------------
+
+1. (race_code == 'B') & (ethnic_code == 'NL') ==> nh_black
+2. (race_code == 'W') & (ethnic_code == 'NL') ==> nh_white
+3. ((race_code == 'W') & (ethnic_code == 'HL')) | ((race_code == 'B') & (ethnic_code == 'HL')) ==> hispanic
+4. (race_code == 'A') & (ethnic_code == 'NL') ==> asian
+
+Comparison #3: Low FN
+-----------------------
+1. (race_code == 'B') & (ethnic_code == 'NL') ==> nh_black
+2. (race_code == 'W') & (ethnic_code == 'NL') ==> nh_white
+3. ethnic_code == 'HL' ==> hispanic
+4. (race_code == 'A')  & (ethnic_code == 'NL') ==> asian
+
 ### NC Ethnicolr Model(s)
 
 We build new LSTM models based on NC data. We start by assuming y = concatenation of ethnic code and race code. We remove U and also UN --- assuming they are 'missing at random.' This gives us 12 categories.
