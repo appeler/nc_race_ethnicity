@@ -80,4 +80,8 @@ We build a separate model that only predicts the race_code and takes out 'U', ag
 1. [Validation](scripts/02_analyze_nc_voter.ipynb)
 2. [12 category Model](scripts/03_nc_12_cat_model.ipynb)
 3. [Race code model](scripts/04_nc_race_code.ipynb)
-4. [Latino model](scripts/05_nc_ethnic_code.ipynb)
+4. [Latino model](scripts/05_nc_voter_name_lstm_hispanic.ipynb)
+
+### Authors
+
+Suriyan Laohaprapanon and Gaurav Sood
