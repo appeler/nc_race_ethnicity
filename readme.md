@@ -77,10 +77,12 @@ We build a separate model that only predicts the race_code and takes out 'U', ag
 
 ### Scripts
 
-1. [Validation](scripts/02_analyze_nc_voter.ipynb)
-2. [12 category Model](scripts/03_nc_12_cat_model.ipynb)
-3. [Race code model](scripts/04_nc_race_code.ipynb)
-4. [Latino model](scripts/05_nc_voter_name_lstm_hispanic.ipynb)
+1. [Download NC Data](scripts/01_download_nc_voter.ipynb)
+2. [FL Model Evaluation on NC Data](scripts/02_analyze_nc_voter.ipynb)
+3. [12 category Model](scripts/03_nc_12_cat_model.ipynb)
+4. [Race code model](scripts/04_nc_race_code.ipynb)
+5. [Latino model](scripts/05_nc_voter_name_lstm_hispanic.ipynb)
+6. [NC Model Evaluation on FL Data](scripts/06_analyze_fl_analyze.ipynb)
 
 ### Authors
 
