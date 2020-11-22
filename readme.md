@@ -39,24 +39,49 @@ FL codebook is as follows:
 
 We start by presenting a full cross-tabulation of prediction from the FL full name model and NC concatenation of race and ethnicity, e.g., Asian--HL, Asian--NL, etc.
 
-Next we present crosstabs that merge some categories. We propose two coding schemes --- Low FP and High FP. Both schemes code the first list item the same way. For the
+Next we present three comparisons:
 
-1. Between FL and NC, the clearest 1 to 1 mapping is for the following:
-  * (FL) White, Not Hispanic --> (NC) W--NL
-  * (FL) Black, Not Hispanic --> (NC) B--NL
+Comparison # 1: Clean Commensurate Group
+--------------------------
 
-  We leave those categories as is. For other categories, we need to make assumptions.
+(race_code == 'B') & (ethnic_code == 'NL') ==> nh_black
+(race_code == 'W') & (ethnic_code == 'NL') ==> nh_white
 
-2. We try two mappings for (FL) Hispanic:
-  * Low FP/High FN: (NC) HL (W--HL, B--HL) (as W--NL and B--NL are defined in FL)
-  * High FP/Low FN: (NC) HL (all categories)
+The overall accuracy is 82%, with accuracy for NH Black at 33% and NH White at 96%.
 
-3. For (FL) Asian or Pacific Islander, American Indian or Alaskan Native, Other, Multi-racial, and Unknown, we try the same two codings:
-  * Low FP/High FN: (NC) A-NL, I-NL, etc. For Unknown, we use U-UN as the lowest FP coding scheme.
-  * High FP/Low FN: (NC) A (all ethnic codes), (NC) I (all ethnic codes), etc
+Comparison #2: Low FP
+------------------------
+
+1. (race_code == 'B') & (ethnic_code == 'NL') ==> nh_black
+2. (race_code == 'W') & (ethnic_code == 'NL') ==> nh_white
+3. ((race_code == 'W') & (ethnic_code == 'HL')) | ((race_code == 'B') & (ethnic_code == 'HL')) ==> hispanic
+4. (race_code == 'A') & (ethnic_code == 'NL') ==> asian
+
+The overall accuracy is 81%, with accuracy for NH Black at 33%, NH White at 96%, Asians at 60%, and Hispanics at 59%.
+
+Comparison #3: Low FN
+-----------------------
+
+1. (race_code == 'B') & (ethnic_code == 'NL') ==> nh_black
+2. (race_code == 'W') & (ethnic_code == 'NL') ==> nh_white
+3. ethnic_code == 'HL' ==> hispanic
+4. (race_code == 'A')  & (ethnic_code == 'NL') ==> asian
+
+The overall accuracy is 81%, with accuracy for NH Black at 33%, NH White at 96%, Asians at 60%, and Hispanics at 71%.
 
 ### NC Ethnicolr Model(s)
 
 We build new LSTM models based on NC data. We start by assuming y = concatenation of ethnic code and race code. We remove U and also UN --- assuming they are 'missing at random.' This gives us 12 categories.
 
-We build a separate model that only predicts the race_code and takes out 'U', again assuming it to be 'missing at random.'
+We build a separate model that only predicts the race_code and takes out 'U', again assuming it to be 'missing at random.' We also build a model that only predicts ethnic_code and take out the UN.
+
+### Scripts
+
+1. [Validation](scripts/02_analyze_nc_voter.ipynb)
+2. [12 category Model](scripts/03_nc_12_cat_model.ipynb)
+3. [Race code model](scripts/04_nc_race_code.ipynb)
+4. [Latino model](scripts/05_nc_voter_name_lstm_hispanic.ipynb)
+
+### Authors
+
+Suriyan Laohaprapanon and Gaurav Sood
